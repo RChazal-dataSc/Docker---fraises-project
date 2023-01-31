@@ -1,0 +1,57 @@
+https://docs.docker.com/engine/reference/commandline/cli/
+
+https://docs.docker.com/engine/reference/builder/
+
+
+Créer une image (li'mage fraises)
+-v pour volumes : le chemin local, et le chemin du conteneur, entre " "
+>docker run -d -p 8080:80 -v "C:\Users\rchaz\Docker\logs":"/app/logs" fraises
+
+
+Executer le conteneur
+docker run
+
+options de conteneur
+docker run -d -p 8080:80 nginx  .
+
+Dans cette commande, nous avons utilisé deux options :
+
+    -d pour détacher le conteneur du processus principal de la console. Il vous permet de continuer à utiliser la console pendant que votre conteneur tourne sur un autre processus ;
+
+    -p pour définir l'utilisation de ports. Dans notre cas, nous lui avons demandé de transférer le trafic du port 8080 vers le port 80 du conteneur. Ainsi, en vous rendant sur l'adresse  http://127.0.0.1:8080  , vous aurez la page par défaut de Nginx.
+
+
+récupérer des images sur le Docker Hub sans pour autant lancer de conteneur.
+docker push nom_du_conteneur)
+
+
+voir les contenuers actifs :
+docker ps
+
+stopper le conteneur
+docker stop ID_RETOURNÉ_LORS_DU_DOCKER_RUN
+
+purger le conteneur
+docker rm ID_RETOURNÉ_LORS_DU_DOCKER_RUN
+
+
+nettoyer le système de toutes les images
+docker system prune
+
+
+
+
+
+    FROM qui vous permet de définir l'image source ;
+
+    RUN qui vous permet d’exécuter des commandes dans votre conteneur ;
+
+    ADD qui vous permet d'ajouter des fichiers dans votre conteneur ;
+
+    WORKDIR qui vous permet de définir votre répertoire de travail ;
+
+    EXPOSE qui permet de définir les ports d'écoute par défaut ;
+
+    VOLUME qui permet de définir les volumes utilisables ;
+
+    CMD qui permet de définir la commande par défaut lors de l’exécution de vos conteneurs Docker.
